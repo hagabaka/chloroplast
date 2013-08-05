@@ -7,15 +7,9 @@ describe Chloroplast do
 
   it 'can be initialized' do
     table = Chloroplast.new
-    table.add_header  :name
-    table.add_header  :age
-    table.add_header  :sex
-    table.append_cell 'John'
-    table.append_cell 30
-    table.append_cell :male
-    table.append_cell 'Mary'
-    table.append_cell 40
-    table.append_cell :female
+    table.add_headers  :name, :age, :sex
+    table.append_cells 'John', 30, :male,
+                       'Mary', 40, :female
 
     expect(table.objects.find {|person| person.name == 'John'}.age).to be == 30
   end

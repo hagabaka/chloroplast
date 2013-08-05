@@ -34,6 +34,11 @@ class Chloroplast
     @headers.push header
   end
 
+  # Add multiple table headers
+  def add_headers(*headers)
+    headers.each &method(:add_header)
+  end
+
   # Add a table cell, and starting a new row and creating an object if appropriate
   def append_cell(value)
     if @headers.empty?
@@ -47,6 +52,11 @@ class Chloroplast
         @current_row = []
       end
     end
+  end
+
+  # Add multiple table cells
+  def append_cells(*values)
+    values.each &method(:append_cell)
   end
 end
 
