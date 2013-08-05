@@ -1,0 +1,14 @@
+Chloroplast provides a DSL for creating objects using a tabular
+format. The table's headers become objects' attribute names, and each
+row of the table defines one object's attribute values.
+
+== Usage
+
+  require 'chloroplast/dsl'
+  table = chloroplast.new     \
+    | :name  | :age | :sex    \
+    | 'john' |   30 | :male   \
+    | 'mary' |   40 | :female \
+
+  table.objects[2].name  # => "Mary"
+
