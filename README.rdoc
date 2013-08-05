@@ -5,10 +5,10 @@ row of the table defines one object's attribute values.
 == Usage
 
   require 'chloroplast/dsl'
-  table = chloroplast.new     \
+  table = Chloroplast.new     \
     | :name  | :age | :sex    \
     | 'john' |   30 | :male   \
     | 'mary' |   40 | :female \
 
-  table.objects[2].name  # => "Mary"
+  table.objects[1].name  # => "Mary"
 
