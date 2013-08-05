@@ -26,5 +26,15 @@ describe Chloroplast do
           |    4 |    5 |    6 \
       end.to raise_error(/header/i)
     end
+
+    it 'allows using other binary operator methods as table cell separator' do
+      # it is necessary to write () after new when using [] as cell "separators"
+      table = Chloroplast.new()       \
+        [ :name  ][ :age ][ :sex    ] \
+        [ 'John' ][   30 ][ :male   ] \
+        [ 'Mary' ][   40 ][ :female ] \
+
+      expect(table.objects[1].name).to be == 'Mary'
+    end
   end
 end
